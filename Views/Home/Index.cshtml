@@ -1,8 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using EUCTask.Controllers
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@inject IStringLocalizer<HomeController> Localizer
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
+<form id="cultureForm" asp-action="Index">
+    <label>@Localizer["Language"]:</label>
+    <select onchange="SetCulture(this.value)" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+    </select>
+</form>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-4">@Localizer["PageTitle"]</h2>
+
 </div>
+
+<script>
+    function SetCulture(selectedValue) {
+        var culture = "/?culture=" + selectedValue + "&ui-culture=" + selectedValue;
+        document.getElementById("cultureForm").action = culture;
+        document.getElementById("cultureForm").submit();
+    }
+</script>
