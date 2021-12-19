@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EUCTask", "EUCTask.csproj", "{3A0DB6E6-E763-41CB-AEBF-7CFBCBD09808}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A0DB6E6-E763-41CB-AEBF-7CFBCBD09808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0DB6E6-E763-41CB-AEBF-7CFBCBD09808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0DB6E6-E763-41CB-AEBF-7CFBCBD09808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0DB6E6-E763-41CB-AEBF-7CFBCBD09808}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1E709F0-4338-432E-8C21-A8391A47B019}
+	EndGlobalSection
+EndGlobal
