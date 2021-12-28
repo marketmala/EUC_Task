@@ -8,27 +8,89 @@
 @inject IOptions<RequestLocalizationOptions> LocOptions
 @inject IStringLocalizer<HomeController> Localizer
 
+@model EUCTask.Models.Registration
+
 @{
     var requestCulture = Context.Features.Get<IRequestCultureFeature>();
     var cultureItems = LocOptions.Value.SupportedUICultures
-        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.Name })
         .ToList();
+    var CountryItems = new List<SelectListItem>();
+    foreach (var country in ViewBag.Countries)
+    {
+        CountryItems.Add(new SelectListItem { Text = country.Name, Value = country.Code });
+    }
 }
 
 <form id="cultureForm" asp-action="Index">
     <label>@Localizer["Language"]:</label>
     <select onchange="SetCulture(this.value)" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
     </select>
+    <div class="text-center">
+        <h2 class="display-4">@Localizer["PageTitle"]</h2>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group">
+            @Html.LabelFor(model => model.FullName)
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthNumber)
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirthNumber, new { htmlAttributes = new { onchange = "ComputeBirthday(this.value)", @id = "birthNumber", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BirthNumber, "", new { @id = "noBirthNumberWarn", @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirthNumberNotSet, new { htmlAttributes = new { onclick = "OnBirthNumberCheckboxChange(this.checked)", @id = "birthNumberNotSetChecked", @class = "checkbox" } })
+                @Html.LabelFor(model => model.BirthNumberNotSet)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthday)
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @id = "birthday", @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender)
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Gender, new[] {
+                 new SelectListItem() {Text = Localizer["Male"], Value = "M"},
+                 new SelectListItem() {Text = Localizer["Female"], Value = "F"}
+             }, Localizer["SelectTitle"], new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email)
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nationality)
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Nationality, CountryItems, Localizer["SelectTitle"], new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(model => model.GdprAgreement, new { htmlAttributes = new { @class = "checkbox" } })
+            @Html.LabelFor(model => model.GdprAgreement)
+            @Html.ValidationMessageFor(model => model.GdprAgreement, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="@Localizer["Save"]" class="btn btn-default" style="background-color: black; color:white" />
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
-<div class="text-center">
-    <h2 class="display-4">@Localizer["PageTitle"]</h2>
 
-</div>
+<script src="~/js/functions.js"></script>
 
-<script>
-    function SetCulture(selectedValue) {
-        var culture = "/?culture=" + selectedValue + "&ui-culture=" + selectedValue;
-        document.getElementById("cultureForm").action = culture;
-        document.getElementById("cultureForm").submit();
-    }
-</script>

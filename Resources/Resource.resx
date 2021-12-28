@@ -117,22 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Birthday" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="BirthNumber" xml:space="preserve">
+    <value>Birth number</value>
+  </data>
+  <data name="BirthNumberInvalid" xml:space="preserve">
+    <value>Invalid birth number</value>
+  </data>
+  <data name="BirthNumberNotSet" xml:space="preserve">
+    <value>I don't have birth number</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>Invalid e-mail addrerss</value>
+  </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="GdprAgreement" xml:space="preserve">
+    <value>I agree with GDPR terms</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
   </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>
   </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Online income form</value>
+  <data name="Nationality" xml:space="preserve">
+    <value>Nationality</value>
   </data>
-  <data name="SelectTitle" xml:space="preserve">
-    <value>Choose an option</value>
+  <data name="WarnGDPR" xml:space="preserve">
+    <value>Please agree to GDPR Terms</value>
   </data>
-  <data name="Send" xml:space="preserve">
-    <value>Send</value>
+  <data name="WarnRequiredField" xml:space="preserve">
+    <value>Mandatory field</value>
   </data>
 </root>

@@ -117,32 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BirthDate" xml:space="preserve">
-    <value>Datum narození</value>
-  </data>
-  <data name="BirthNumber" xml:space="preserve">
-    <value>Rodné číslo</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-mail</value>
-  </data>
-  <data name="FullName" xml:space="preserve">
-    <value>Jméno a přijmení</value>
-  </data>
-  <data name="GDPRAgrreement" xml:space="preserve">
-    <value>Souhlas s GDPR</value>
-  </data>
-  <data name="Gender" xml:space="preserve">
-    <value>Pohlaví</value>
+  <data name="Female" xml:space="preserve">
+    <value>Žena</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Jazyk</value>
   </data>
-  <data name="Nationality" xml:space="preserve">
-    <value>Státní příslušnost</value>
+  <data name="Male" xml:space="preserve">
+    <value>Muž</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Online vstupní dotazník</value>
+  </data>
+  <data name="SelectTitle" xml:space="preserve">
+    <value>Vyberte</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Odeslat</value>
