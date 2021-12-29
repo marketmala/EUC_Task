@@ -18,7 +18,7 @@
     }
 }
 
-<form id="cultureForm" asp-action="Registration">
+<form id="registrationForm" asp-action="Registration">
     @if (ViewBag.Success == false)
     {
         <div class="text-center alert alert-warning" id="warning" style="display:block">
@@ -34,7 +34,7 @@
     <div class="text-center">
         <h2 class="display-4">@Localizer["PageTitle"]</h2>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 ">
         <div class="form-group">
             @Html.LabelFor(model => model.FullName)
             <div class="col-md-10">
@@ -94,7 +94,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <input type="submit" value="@Localizer["Save"]" class="btn btn-default" style="background-color: black; color:white" />
+                <input type="submit" value="@Localizer["Send"]" class="btn btn-default btn-dark"  />
             </div>
         </div>
     </div>

@@ -120,6 +120,9 @@
   <data name="Female" xml:space="preserve">
     <value>Female</value>
   </data>
+  <data name="GDPRlink" xml:space="preserve">
+    <value>GDPR terms</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -134,9 +137,6 @@
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>GDPR terms</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>New registration was created succesfully</value>

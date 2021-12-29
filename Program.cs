@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Serilog;
+using System.IO;
 
 namespace EUCTask
 {
@@ -13,6 +10,9 @@ namespace EUCTask
     {
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File($"{Directory.GetParent(Environment.CurrentDirectory)}\\Logs\\EUCTask_.log", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
             CreateHostBuilder(args).Build().Run();
         }
 

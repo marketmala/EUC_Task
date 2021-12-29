@@ -5,28 +5,31 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace EUCTask.Logic
 {
     public class RegistrationService : IRegistrationService
     {
         readonly IDataContext context;
+        readonly ILogger logger = Log.ForContext<RegistrationService>();
 
         public RegistrationService(IDataContext context)
         {
             this.context = context;
         }
 
-        public async Task<RegistrationData?> CreateRegistrationAsync(Registration registration)
+        public async Task<RegistrationData> CreateRegistrationAsync(Registration registration)
         {
             try
             {
                 var result = await this.context.CreateRegistrationAsync(registration);
+                logger.Information("CreateRegistrationAsync success");
                 return result;
             }
             catch (Exception e)
             {
-                // logging
+                logger.Error(e, "CreateRegistrationAsync");
             }
 
             return null;
@@ -44,7 +47,7 @@ namespace EUCTask.Logic
             }
             catch(Exception e)
             {
-                // logging
+                logger.Error(e, "SaveToFile");
             }
         }
     }

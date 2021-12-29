@@ -1,6 +1,5 @@
 ﻿using EUCTask.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace EUCTask.Controllers
     {
         private readonly IRegistrationService registrationService;
 
-        private List<Country> countries;
+        private readonly List<Country> countries;
 
         public HomeController(IRegistrationService registrationService)
         {
