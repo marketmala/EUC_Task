@@ -33,6 +33,4 @@ namespace EUCTask.Models
         [RequiredTrue(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "WarnGDPR")]
         public bool GdprAgreement { get; set; }
     }
-
-
 }

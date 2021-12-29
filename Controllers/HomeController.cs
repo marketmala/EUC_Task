@@ -26,14 +26,14 @@ namespace EUCTask.Controllers
                 .Select(x => new Country { Code = x.Name, Name = x.EnglishName }).ToList();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Registration()
         {
             ViewBag.Countries = countries;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(Registration r)
+        public async Task<IActionResult> Registration(Registration r)
         {
             ViewBag.Countries = countries;
             if (ModelState.IsValid)
@@ -42,7 +42,7 @@ namespace EUCTask.Controllers
             }
             else
             {
-                return View();
+                return View(r);
             }
         }
 

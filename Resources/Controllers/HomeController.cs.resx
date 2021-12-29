@@ -120,6 +120,9 @@
   <data name="Female" xml:space="preserve">
     <value>Žena</value>
   </data>
+  <data name="GDPRlink" xml:space="preserve">
+    <value>pravidly GDPR</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Jazyk</value>
   </data>

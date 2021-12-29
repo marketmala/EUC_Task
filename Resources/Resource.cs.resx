@@ -142,7 +142,7 @@
     <value>Jméno a přijmení</value>
   </data>
   <data name="GdprAgreement" xml:space="preserve">
-    <value>Souhlasím s pravidly GDPR</value>
+    <value>Souhlasím s </value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Pohlaví</value>
@@ -154,7 +154,7 @@
     <value>Státní příslušnost</value>
   </data>
   <data name="WarnGDPR" xml:space="preserve">
-    <value>Musíte souhlasit s pravidly GDPR</value>
+    <value>Je vyžadován souhlas s pravidly GDPR</value>
   </data>
   <data name="WarnRequiredField" xml:space="preserve">
     <value>Povinné pole</value>

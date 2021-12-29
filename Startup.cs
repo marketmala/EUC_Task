@@ -45,7 +45,6 @@ namespace EUCTask
                     new CultureInfo("cs"),
                     new CultureInfo("en-US")
                 };
-                options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
                 options.SupportedCultures = cultures;
                 options.SupportedUICultures = cultures;
             });
@@ -78,7 +77,7 @@ namespace EUCTask
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Registration}/{id?}");
             });
 
         }

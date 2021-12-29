@@ -133,7 +133,7 @@ namespace EUCTask.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I agree with GDPR terms.
+        ///   Looks up a localized string similar to I agree with .
         /// </summary>
         public static string GdprAgreement {
             get {
@@ -169,7 +169,7 @@ namespace EUCTask.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please agree to GDPR Terms.
+        ///   Looks up a localized string similar to Agreement to GDPR terms is required.
         /// </summary>
         public static string WarnGDPR {
             get {

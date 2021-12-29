@@ -142,7 +142,7 @@
     <value>Full name</value>
   </data>
   <data name="GdprAgreement" xml:space="preserve">
-    <value>I agree with GDPR terms</value>
+    <value>I agree with </value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
@@ -154,7 +154,7 @@
     <value>Nationality</value>
   </data>
   <data name="WarnGDPR" xml:space="preserve">
-    <value>Please agree to GDPR Terms</value>
+    <value>Agreement to GDPR terms is required</value>
   </data>
   <data name="WarnRequiredField" xml:space="preserve">
     <value>Mandatory field</value>

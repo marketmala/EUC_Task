@@ -11,10 +11,6 @@
 @model EUCTask.Models.Registration
 
 @{
-    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
-    var cultureItems = LocOptions.Value.SupportedUICultures
-        .Select(c => new SelectListItem { Value = c.Name, Text = c.Name })
-        .ToList();
     var CountryItems = new List<SelectListItem>();
     foreach (var country in ViewBag.Countries)
     {
@@ -22,10 +18,7 @@
     }
 }
 
-<form id="cultureForm" asp-action="Index">
-    <label>@Localizer["Language"]:</label>
-    <select onchange="SetCulture(this.value)" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
-    </select>
+<form id="cultureForm" asp-action="Registration">
     <div class="text-center">
         <h2 class="display-4">@Localizer["PageTitle"]</h2>
     </div>
@@ -80,13 +73,16 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.EditorFor(model => model.GdprAgreement, new { htmlAttributes = new { @class = "checkbox" } })
-            @Html.LabelFor(model => model.GdprAgreement)
-            @Html.ValidationMessageFor(model => model.GdprAgreement, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-md-10">
-                    <input type="submit" value="@Localizer["Save"]" class="btn btn-default" style="background-color: black; color:white" />
-                </div>
+                @Html.EditorFor(model => model.GdprAgreement, new { htmlAttributes = new { @class = "checkbox" } })
+                @Html.LabelFor(model => model.GdprAgreement)
+                <a href="gdpr.pdf" target="_blank">@Localizer["GDPRlink"]</a>
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.GdprAgreement, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="@Localizer["Save"]" class="btn btn-default" style="background-color: black; color:white" />
             </div>
         </div>
     </div>
