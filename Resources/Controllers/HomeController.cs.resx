@@ -138,4 +138,10 @@
   <data name="Send" xml:space="preserve">
     <value>Odeslat</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>Záznam byl úspěšně uložen</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Záznam nebyl uložen</value>
+  </data>
 </root>

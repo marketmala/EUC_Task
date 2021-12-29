@@ -1,8 +1,6 @@
 ﻿using EUCTask.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -14,14 +12,12 @@ namespace EUCTask.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> logger;
         private readonly IRegistrationService registrationService;
 
         private List<Country> countries;
 
-        public HomeController(ILogger<HomeController> logger, IRegistrationService registrationService)
+        public HomeController(IRegistrationService registrationService)
         {
-            this.logger = logger;
             this.registrationService = registrationService;
 
             countries = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
@@ -31,7 +27,7 @@ namespace EUCTask.Controllers
                 .Select(x => new Country { Code = x.Name, Name = x.EnglishName }).ToList();
         }
 
-        public async Task<IActionResult> Registration()
+        public IActionResult Registration()
         {
             ViewBag.Countries = countries;
             return View();
@@ -46,17 +42,20 @@ namespace EUCTask.Controllers
                 var registrationData = await registrationService.CreateRegistrationAsync(r);
                 if(registrationData != null)
                 {
-                    
+                    await registrationService.SaveToFile(registrationData);
+                    ViewBag.Success = true;
+                    ModelState.Clear();
+                    return View();
                 }
                 else
                 {
-
+                    ViewBag.Success = false;
+                    return View();
                 }
-                return View(r);
             }
             else
             {
-                return View(r);
+                return View();
             }
         }
 

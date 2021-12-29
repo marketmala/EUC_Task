@@ -19,6 +19,18 @@
 }
 
 <form id="cultureForm" asp-action="Registration">
+    @if (ViewBag.Success == false)
+    {
+        <div class="text-center alert alert-warning" id="warning" style="display:block">
+            @Localizer["Warning"]
+        </div>
+    }
+    @if (ViewBag.Success == true)
+    {
+        <div class="text-center alert alert-success" id="success" style="display:block">
+            @Localizer["Success"]
+        </div>
+    }
     <div class="text-center">
         <h2 class="display-4">@Localizer["PageTitle"]</h2>
     </div>
@@ -73,9 +85,9 @@
             </div>
         </div>
         <div class="form-group">
-                @Html.EditorFor(model => model.GdprAgreement, new { htmlAttributes = new { @class = "checkbox" } })
-                @Html.LabelFor(model => model.GdprAgreement)
-                <a href="gdpr.pdf" target="_blank">@Localizer["GDPRlink"]</a>
+            @Html.EditorFor(model => model.GdprAgreement, new { htmlAttributes = new { @class = "checkbox" } })
+            @Html.LabelFor(model => model.GdprAgreement)
+            <a href="gdpr.pdf" target="_blank">@Localizer["GDPRlink"]</a>
             <div class="col-md-10">
                 @Html.ValidationMessageFor(model => model.GdprAgreement, "", new { @class = "text-danger" })
             </div>
@@ -89,4 +101,3 @@
 </form>
 
 <script src="~/js/functions.js"></script>
-

@@ -27,15 +27,15 @@ namespace EUCTask.Models.DB
                 Email = registration.Email
             };
 
-            this.Registration.Add(newRegistration);
+            await this.Registration.AddAsync(newRegistration);
             this.SaveChanges();
-            
+
             return newRegistration;
         }
 
         public async Task<IEnumerable<RegistrationData>> GetAllRegistrationsAsync()
         {
-            return this.Registration.OrderBy(x => x.FullName).ToList();
+            return await this.Registration.OrderBy(x => x.FullName).ToListAsync();
         }
     }
 }

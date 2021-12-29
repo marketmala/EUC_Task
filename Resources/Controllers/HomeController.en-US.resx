@@ -138,4 +138,10 @@
   <data name="String1" xml:space="preserve">
     <value>GDPR terms</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>New registration was created succesfully</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>New registration wasn't created</value>
+  </data>
 </root>
