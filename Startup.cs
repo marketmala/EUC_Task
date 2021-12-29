@@ -1,17 +1,17 @@
+using EUCTask.Interfaces;
+using EUCTask.Logic;
+using EUCTask.Models.DB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace EUCTask
 {
@@ -48,6 +48,11 @@ namespace EUCTask
                 options.SupportedCultures = cultures;
                 options.SupportedUICultures = cultures;
             });
+
+            services.AddTransient<IRegistrationService, RegistrationService>();
+            services.AddDbContext<IDataContext, DataContext>(options =>
+                options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Directory.GetParent(Environment.CurrentDirectory).Parent)));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

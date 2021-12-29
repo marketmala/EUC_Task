@@ -8,17 +8,22 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
+using EUCTask.Interfaces;
 
 namespace EUCTask.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
+        private readonly IRegistrationService registrationService;
+
         private List<Country> countries;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRegistrationService registrationService)
         {
             this.logger = logger;
+            this.registrationService = registrationService;
+
             countries = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
                 .Select(x => new RegionInfo(x.LCID))
                 .Distinct()
@@ -38,6 +43,15 @@ namespace EUCTask.Controllers
             ViewBag.Countries = countries;
             if (ModelState.IsValid)
             {
+                var registrationData = await registrationService.CreateRegistrationAsync(r);
+                if(registrationData != null)
+                {
+                    
+                }
+                else
+                {
+
+                }
                 return View(r);
             }
             else
