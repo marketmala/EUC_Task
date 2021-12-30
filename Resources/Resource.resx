@@ -156,6 +156,9 @@
   <data name="WarnGDPR" xml:space="preserve">
     <value>Agreement to GDPR terms is required</value>
   </data>
+  <data name="WarnInvalidBirthday" xml:space="preserve">
+    <value>Birthday should be in past</value>
+  </data>
   <data name="WarnRequiredField" xml:space="preserve">
     <value>Mandatory field</value>
   </data>

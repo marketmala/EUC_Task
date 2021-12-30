@@ -51,6 +51,15 @@ button.accept-policy {
   line-height: inherit;
 }
 
+input.btn-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -78,3 +87,12 @@ img {
     width: 5%;
     height: 5%
 }
+
+.center-horizontal {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+

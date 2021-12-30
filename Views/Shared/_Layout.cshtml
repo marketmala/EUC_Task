@@ -1,10 +1,13 @@
-﻿
+﻿@using Microsoft.Extensions.Localization
+@using EUCTask.Controllers
+@inject IStringLocalizer<HomeController> Localizer
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - EUCTask</title>
+    <title>EUCTask</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -12,26 +15,18 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <div class="col-md-8"><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Registration">EUCTask</a></div>
-                <div class="col-md-4">
-                    <img class="link" src="~/pictures/cz.png" onclick="SetCulture('cs')" />
-                    <img class="link" src="~/pictures/en.png" onclick="SetCulture('en-US')" />
+                <div class="col-md-10"><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Registration"><h3>@Localizer["PageTitle"]</h3></a></div>
+                <div class="col-md-2 float-right">
+                    @await Html.PartialAsync("_SelectLanguagePartial")
                 </div>
             </div>
         </nav>
-
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - EUCTask - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

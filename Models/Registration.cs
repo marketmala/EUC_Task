@@ -18,7 +18,8 @@ namespace EUCTask.Models
         public bool BirthNumberNotSet { get; set; } = false;
         [Display(Name = "Birthday", ResourceType = typeof(Resource))]
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "WarnRequiredField")]
-        public DateTime Birthday { get; set; }
+        [BirthdayValidation(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "WarnInvalidBirthday")]
+        public DateTime? Birthday { get; set; }
         [Display(Name = "Gender", ResourceType = typeof(Resource))]
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "WarnRequiredField")]
         public string Gender { get; set; }

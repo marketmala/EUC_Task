@@ -156,6 +156,9 @@
   <data name="WarnGDPR" xml:space="preserve">
     <value>Je vyžadován souhlas s pravidly GDPR</value>
   </data>
+  <data name="WarnInvalidBirthday" xml:space="preserve">
+    <value>Datum narození musí být v minulosti</value>
+  </data>
   <data name="WarnRequiredField" xml:space="preserve">
     <value>Povinné pole</value>
   </data>

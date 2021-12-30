@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace EUCTask
 {
@@ -28,7 +29,8 @@ namespace EUCTask
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
 
             services.AddLocalization(options =>
             {
@@ -40,13 +42,10 @@ namespace EUCTask
 
             services.Configure<RequestLocalizationOptions>(options =>
             {
-                var cultures = new CultureInfo[]
-                {
-                    new CultureInfo("cs"),
-                    new CultureInfo("en-US")
-                };
-                options.SupportedCultures = cultures;
-                options.SupportedUICultures = cultures;
+                var supportedCultures = new[] { "cs", "en-US"};
+                options.SetDefaultCulture(supportedCultures[0])
+                    .AddSupportedCultures(supportedCultures)
+                    .AddSupportedUICultures(supportedCultures);
             });
 
             services.AddTransient<IRegistrationService, RegistrationService>();
@@ -58,9 +57,12 @@ namespace EUCTask
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(locOptions.Value);
+            var supportedCultures = new[] { "cs", "en-US" };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
 
+            app.UseRequestLocalization(localizationOptions);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -84,7 +86,6 @@ namespace EUCTask
                     name: "default",
                     pattern: "{controller=Home}/{action=Registration}/{id?}");
             });
-
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
@@ -63,4 +64,15 @@ namespace EUCTask.Extensions
             return (bool)value;
         }
     }
+
+    public class BirthdayValidationAttribute : ValidationAttribute
+    {
+        public override bool IsValid(object value)
+        {
+            if (value == null || value.GetType() != typeof(DateTime)) return false;
+            if ((DateTime)value > DateTime.Now) return false;
+            return true;
+        }
+    }
+
 }

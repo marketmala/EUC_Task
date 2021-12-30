@@ -1,11 +1,4 @@
-﻿
-function SetCulture(selectedValue) {
-    let culture = "/?culture=" + selectedValue + "&ui-culture=" + selectedValue;
-    document.getElementById("cultureForm").action = culture;
-    document.getElementById("cultureForm").submit();
-}
-
-function OnBirthNumberCheckboxChange(isChecked) {
+﻿function OnBirthNumberCheckboxChange(isChecked) {
     let birthNumberInput = document.getElementById("birthNumber");
     if (isChecked == true) {
         birthNumberInput.value = "";
@@ -39,3 +32,4 @@ function ComputeBirthday(birthNumber) {
         return birthday;
     }
 }
+

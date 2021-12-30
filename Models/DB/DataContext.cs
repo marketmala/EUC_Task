@@ -21,7 +21,7 @@ namespace EUCTask.Models.DB
                 Id = Guid.NewGuid(),
                 FullName = registration.FullName,
                 BirthNumber = registration.BirthNumber,
-                Birthday = registration.Birthday,
+                Birthday = ((DateTime)registration.Birthday!),
                 Gender = registration.Gender,
                 Nationality = registration.Nationality,
                 Email = registration.Email

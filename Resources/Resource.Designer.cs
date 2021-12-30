@@ -178,6 +178,15 @@ namespace EUCTask.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Birthday should be in past.
+        /// </summary>
+        public static string WarnInvalidBirthday {
+            get {
+                return ResourceManager.GetString("WarnInvalidBirthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mandatory field.
         /// </summary>
         public static string WarnRequiredField {
