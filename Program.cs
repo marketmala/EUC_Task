@@ -11,7 +11,7 @@ namespace EUCTask
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.File($"{Directory.GetParent(Environment.CurrentDirectory)}\\EUCTask\\Logs\\EUCTask_.log", rollingInterval: RollingInterval.Day)
+                .WriteTo.File($"{Environment.CurrentDirectory}\\Logs\\EUCTask_.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             CreateHostBuilder(args).Build().Run();
         }

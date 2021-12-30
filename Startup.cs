@@ -50,7 +50,7 @@ namespace EUCTask
 
             services.AddTransient<IRegistrationService, RegistrationService>();
             services.AddDbContext<IDataContext, DataContext>(options =>
-                options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Directory.GetParent(Environment.CurrentDirectory))));
+                options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Environment.CurrentDirectory)));
 
         }
 
