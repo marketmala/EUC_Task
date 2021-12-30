@@ -40,7 +40,7 @@ namespace EUCTask.Logic
             try
             {
                 var jsonData = JsonConvert.SerializeObject(registrationData);
-                using (TextWriter writer = new StreamWriter($"{Directory.GetParent(Environment.CurrentDirectory)}\\registrations.json", append: true))
+                using (TextWriter writer = new StreamWriter($"{Directory.GetParent(Environment.CurrentDirectory)}\\EUCTask\\registrations.json", append: true))
                 {
                     await writer.WriteLineAsync(jsonData);
                 }
